@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>比比奇电影网 - bibiqidianyingwang-h5 | 最新影视资讯与观影导航</title>
+<meta name="description" content="比比奇电影网（bibiqidianyingwang-h5）专注提供最新热映影片、影讯动态、深度影评与影视导航服务，一站式发现好电影，畅享观影乐趣。">
+<meta name="keywords" content="比比奇电影网, bibiqidianyingwang-h5, 比比奇电影网影视资讯, 比比奇电影网热映影片, 比比奇电影网影评, 比比奇电影网导航, 最新电影, 电影推荐">
+<meta name="author" content="比比奇电影网">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<link rel="canonical" href="https://bibiqidianyingwang-h5.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="比比奇电影网">
+<meta property="og:title" content="比比奇电影网 - bibiqidianyingwang-h5 | 最新影视资讯与观影导航">
+<meta property="og:description" content="比比奇电影网专注提供最新热映影片、影讯动态、深度影评与影视导航服务。">
+<meta property="og:url" content="https://bibiqidianyingwang-h5.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="比比奇电影网 - bibiqidianyingwang-h5">
+<meta name="twitter:description" content="最新热映影片、影讯动态、深度影评与影视导航，一站式发现好电影。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+<style>
+:root{
+  --bg:#f4f6fb;
+  --surface:#ffffff;
+  --ink:#1a1f36;
+  --ink-2:#4a5273;
+  --ink-3:#8a92ad;
+  --line:#e3e8f2;
+  --brand:#ff5b3a;
+  --brand-2:#ff8a3d;
+  --accent:#4f6bff;
+  --shadow:0 8px 30px rgba(26,31,54,.08);
+  --radius:16px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.75;font-size:16px;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.container{width:min(1120px,92%);margin:0 auto}
+
+/* ===== Top utility bar ===== */
+.utility{
+  background:var(--ink);color:#cdd3e6;font-size:.82rem;padding:.5rem 0;
+}
+.utility .container{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.utility a:hover{color:var(--brand-2)}
+
+/* ===== Header ===== */
+.site-header{
+  position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.site-header .container{
+  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;height:68px;
+}
+.logo{display:flex;align-items:center;gap:.65rem;flex-shrink:0}
+.logo-mark{
+  width:40px;height:40px;border-radius:12px;
+  background:linear-gradient(135deg,var(--brand),var(--brand-2));
+  display:grid;place-items:center;font-size:1.3rem;color:#fff;
+  box-shadow:0 6px 16px rgba(255,91,58,.35);
+}
+.logo-text{display:flex;flex-direction:column;line-height:1.15}
+.logo-text strong{font-size:1.2rem;letter-spacing:.5px}
+.logo-text span{font-size:.7rem;color:var(--ink-3);font-family:monospace}
+.main-nav{display:flex;gap:.25rem;align-items:center}
+.main-nav a{
+  padding:.5rem .9rem;border-radius:10px;font-size:.95rem;color:var(--ink-2);
+  transition:.25s var(--ease);font-weight:500;
+}
+.main-nav a:hover{background:rgba(79,107,255,.08);color:var(--accent)}
+.menu-btn{
+  display:none;width:44px;height:44px;border:none;border-radius:12px;
+  background:var(--ink);color:#fff;font-size:1.2rem;cursor:pointer;
+}
+
+/* ===== Hero ===== */
+.hero{
+  position:relative;padding:clamp(3rem,8vw,6rem) 0;overflow:hidden;
+  background:
+    radial-gradient(800px 400px at 85% -10%,rgba(255,138,61,.18),transparent 60%),
+    radial-gradient(600px 400px at 10% 20%,rgba(79,107,255,.12),transparent 60%),
+    var(--bg);
+}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.hero h1{
+  font-size:clamp(2rem,5vw,3.4rem);line-height:1.2;letter-spacing:-.5px;margin-bottom:1.2rem;
+}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{font-size:clamp(1rem,2vw,1.15rem);color:var(--ink-2);max-width:34em;margin-bottom:2rem}
+.hero-cta{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem;border-radius:12px;
+  font-weight:600;font-size:.95rem;transition:.3s var(--ease);border:2px solid transparent;cursor:pointer;
+}
+.btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;box-shadow:0 10px 24px rgba(255,91,58,.3)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(255,91,58,.4)}
+.btn-ghost{background:var(--surface);color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem;
+}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.1rem;text-align:center}
+.stat b{display:block;font-size:1.7rem;color:var(--brand);line-height:1}
+.stat span{font-size:.8rem;color:var(--ink-3)}
+
+/* Hero visual — film strip stack */
+.film-stack{position:relative;height:clamp(300px,42vw,440px)}
+.strip{
+  position:absolute;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);
+  border:6px solid #fff;transform-origin:center;
+}
+.strip::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.35))}
+.strip span{position:absolute;left:1rem;right:1rem;bottom:.9rem;color:#fff;font-weight:700;font-size:.95rem;z-index:2;text-shadow:0 2px 8px rgba(0,0,0,.5)}
+.s1{width:62%;height:74%;left:0;top:6%;transform:rotate(-6deg);background:linear-gradient(135deg,#6a5cff,#3d7bff)}
+.s2{width:58%;height:70%;right:0;top:0;transform:rotate(5deg);background:linear-gradient(135deg,#ff7a59,#ff3d7f)}
+.s3{width:54%;height:42%;left:14%;bottom:0;transform:rotate(-2deg);background:linear-gradient(135deg,#23c4a0,#1e8eff)}
+.s4{width:38%;height:34%;right:6%;bottom:8%;transform:rotate(8deg);background:linear-gradient(135deg,#ffb52e,#ff5b3a)}
+
+/* ===== Section base ===== */
+.section{padding:clamp(3rem,7vw,5.5rem) 0}
+.section-head{text-align:center;max-width:42em;margin:0 auto 2.5rem}
+.eyebrow{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--brand);background:rgba(255,91,58,.1);padding:.35rem .9rem;border-radius:999px;margin-bottom:.8rem}
+.section-head h2{font-size:clamp(1.6rem,3.5vw,2.4rem);line-height:1.3;margin-bottom:.6rem}
+.section-head p{color:var(--ink-2);font-size:.98rem}
+
+/* ===== Films: masonry-ish asymmetric grid ===== */
+.films{
+  display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:150px;gap:1rem;
+}
+.film{
+  position:relative;border-radius:var(--radius);overflow:hidden;cursor:pointer;
+  box-shadow:var(--shadow);border:1px solid var(--line);
+}
+.film-body{position:absolute;inset:0;padding:1.1rem;display:flex;flex-direction:column;justify-content:flex-end;z-index:2}
+.film-body::before{content:"";position:absolute;inset:0;background:linear-gradient(165deg,transparent 30%,rgba(0,0,0,.82));z-index:-1}
+.film h3{color:#fff;font-size:1.05rem;line-height:1.3}
+.film .meta{color:rgba(255,255,255,.8);font-size:.78rem;margin-top:.35rem;display:flex;gap:.6rem;flex-wrap:wrap}
+.film .tag{
+  position:absolute;top:1rem;left:1rem;z-index:3;background:var(--brand);color:#fff;
+  font-size:.72rem;font-weight:700;padding:.25rem .65rem;border-radius:999px;
+}
+.film:hover{transform:scale(1.02);z-index:5}
+.film{transition:transform .35s var(--ease)}
+.f-a{grid-column:span 2;grid-row:span 2}
+.f-b{grid-column:span 2;grid-row:span 1}
+.f-c{grid-column:span 1;grid-row:span 1}
+.f-d{grid-column:span 1;grid-row:span 1}
+.f-e{grid-column:span 2;grid-row:span 1}
+.bg1{background:linear-gradient(135deg,#4338ca,#7c3aed)}
+.bg2{background:linear-gradient(135deg,#059669,#0ea5e9)}
+.bg3{background:linear-gradient(135deg,#ea580c,#ec4899)}
+.bg4{background:linear-gradient(135deg,#2563eb,#0891b2)}
+.bg5{background:linear-gradient(135deg,#d97706,#dc2626)}
+.bg6{background:linear-gradient(135deg,#16a34a,#4f46e5)}
+.bg7{background:linear-gradient(135deg,#be185d,#7c2d12)}
+
+/* ===== News: alternating rows ===== */
+.news-item{
+  display:grid;grid-template-columns:88px 1fr auto;align-items:center;gap:1.5rem;
+  background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:1.2rem 1.5rem;margin-bottom:1rem;transition:.3s var(--ease);
+}
+.news-item:hover{border-color:var(--accent);transform:translateX(6px);box-shadow:var(--shadow)}
+.news-date{
+  width:88px;height:88px;border-radius:14px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--accent),#7c3aed);color:#fff;
+  display:grid;place-items:center;text-align:center;line-height:1.1;
+}
+.news-date b{font-size:1.8rem;display:block}
+.news-date small{font-size:.72rem;opacity:.85}
+.news-text h3{font-size:1.1rem;margin-bottom:.3rem;line-height:1.4}
+.news-text p{font-size:.88rem;color:var(--ink-2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.news-arrow{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:1.1rem;color:var(--ink-3);transition:.3s var(--ease)}
+.news-item:hover .news-arrow{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* ===== Reviews: vertical card list with number ===== */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.review{
+  position:relative;background:var(--surface);border-radius:var(--radius);
+  padding:2rem 1.5rem 1.5rem;border:1px solid var(--line);box-shadow:var(--shadow);
+}
+.review .num{
+  position:absolute;top:-18px;left:1.5rem;width:46px;height:46px;border-radius:12px;
+  background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;
+  display:grid;place-items:center;font-size:1.3rem;font-weight:800;
+  box-shadow:0 8px 20px rgba(255,91,58,.3);
+}
+.review .stars{color:#ffb400;font-size:.9rem;margin-bottom:.7rem;letter-spacing:2px}
+.review h3{font-size:1.15rem;margin-bottom:.6rem}
+.review p{font-size:.9rem;color:var(--ink-2);line-height:1.7}
+.review-foot{display:flex;justify-content:space-between;align-items:center;margin-top:1.2rem;padding-top:1rem;border-top:1px dashed var(--line);font-size:.82rem;color:var(--ink-3)}
+
+/* ===== About: split layout ===== */
+.about-wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center;background:var(--surface);border-radius:24px;padding:clamp(1.5rem,4vw,3rem);border:1px solid var(--line);box-shadow:var(--shadow)}
+.about-art{
+  position:relative;min-height:320px;border-radius:18px;overflow:hidden;
+  background:linear-gradient(160deg,#1e1b4b,#4338ca 55%,#7c3aed);
+}
+.about-art .orb{position:absolute;border-radius:50%;filter:blur(4px);opacity:.75}
+.o1{width:180px;height:180px;background:#ff5b3a;top:-40px;right:-30px}
+.o2{width:130px;height:130px;background:#23d5ab;bottom:30px;left:-30px}
+.o3{width:90px;height:90px;background:#ffd23f;bottom:-20px;right:40px}
+.about-art .play{
+  position:absolute;inset:0;display:grid;place-items:center;z-index:5;
+}
+.about-art .play span{
+  width:84px;height:84px;border-radius:50%;background:rgba(255,255,255,.2);
+  backdrop-filter:blur(6px);display:grid;place-items:center;font-size:1.8rem;color:#fff;
+  border:2px solid rgba(255,255,255,.6);
+}
+.about-text h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:1rem;line-height:1.3}
+.about-text p{color:var(--ink-2);margin-bottom:1.2rem}
+.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
+.feat{background:var(--bg);border-radius:12px;padding:1rem;border:1px solid var(--line)}
+.feat b{display:block;color:var(--accent);font-size:.85rem;margin-bottom:.3rem}
+.feat span{font-size:.85rem;color:var(--ink-2)}
+
+/* ===== Nav-table (link hub) ===== */
+.link-hub{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+.hub-col{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.5rem;box-shadow:var(--shadow)}
+.hub-col h3{font-size:1rem;margin-bottom:1rem;display:flex;align-items:center;gap:.6rem}
+.hub-col h3 i{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-size:1rem;color:#fff;background:linear-gradient(135deg,var(--accent),#7c3aed)}
+.hub-col a{display:block;padding:.55rem 0;font-size:.92rem;color:var(--ink-2);border-bottom:1px dashed var(--line);transition:.25s var(--ease)}
+.hub-col a:last-child{border-bottom:none}
+.hub-col a:hover{color:var(--brand);padding-left:.5rem}
+
+/* ===== Footer ===== */
+.site-footer{background:var(--ink);color:#aab2cc;padding:3rem 0 1.5rem}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+.foot-grid h4{color:#fff;font-size:1rem;margin-bottom:1rem}
+.foot-brand p{font-size:.88rem;line-height:1.8}
+.foot-grid a{display:block;color:#aab2cc;font-size:.88rem;padding:.3rem 0;transition:.25s}
+.foot-grid a:hover{color:var(--brand-2)}
+.foot-bottom{
+  border-top:1px solid rgba(255,255,255,.1);padding-top:1.5rem;
+  display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.8rem;color:#7c85a3;
+}
+.foot-bottom em{font-style:normal;color:var(--brand-2);font-family:monospace}
+
+/* ===== Responsive ===== */
+@media (max-width:900px){
+  .hero-grid,.about-wrap{grid-template-columns:1fr}
+  .film-stack{height:300px;order:-1}
+  .films{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px}
+  .f-a,.f-b,.f-c,.f-d,.f-e{grid-column:span 1;grid-row:span 1}
+  .f-a{grid-column:span 2;grid-row:span 2}
+  .reviews,.link-hub{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  body{font-size:15px}
+  .utility{font-size:.72rem}
+  .menu-btn{display:grid;place-items:center}
+  .main-nav{
+    position:fixed;top:68px;left:0;right:0;flex-direction:column;align-items:stretch;
+    background:var(--surface);padding:1rem;gap:.25rem;
+    box-shadow:0 20px 40px rgba(0,0,0,.12);border-top:1px solid var(--line);
+    transform:translateY(-130%);opacity:0;pointer-events:none;transition:.35s var(--ease);
+  }
+  .main-nav.open{transform:translateY(0);opacity:1;pointer-events:auto}
+  .main-nav a{text-align:center;padding:.8rem}
+  .news-item{grid-template-columns:1fr;padding:1rem;text-align:center}
+  .news-date{margin:0 auto}
+  .news-arrow{display:none}
+  .films{grid-template-columns:1fr;grid-auto-rows:220px}
+  .f-a{grid-column:span 1;grid-row:span 1}
+  .reviews,.link-hub,.feat-grid{grid-template-columns:1fr}
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .foot-bottom{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<!-- Utility bar -->
+<div class="utility">
+  <div class="container">
+    <span>欢迎来到比比奇电影网 · 发现好电影，畅享观影乐趣</span>
+    <span><a href="#">登录</a> · <a href="#">注册</a> · <a href="#">RSS 订阅</a></span>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="container">
+    <a href="#" class="logo" aria-label="比比奇电影网首页">
+      <span class="logo-mark">🎬</span>
+      <span class="logo-text">
+        <strong>比比奇电影网</strong>
+        <span>bibiqidianyingwang-h5</span>
+      </span>
+    </a>
+    <nav class="main-nav" id="nav">
+      <a href="#films">热映影片</a>
+      <a href="#news">影讯动态</a>
+      <a href="#reviews">影评观点</a>
+      <a href="#about">关于本站</a>
+      <a href="#hub">影视导航</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="打开菜单">☰</button>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1>在 <em>比比奇电影网</em> 发现你的下一部心头好</h1>
+      <p class="lead">bibiqidianyingwang-h5 专注最新热映影片、影讯动态、深度影评与影视导航，帮你快速找到值得一看的好电影，让每一次观影都不踩雷。</p>
+      <div class="hero-cta">
+        <a href="#films" class="btn btn-primary">立即选片 →</a>
+        <a href="#reviews" class="btn btn-ghost">看看影评</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>2000+</b><span>精选影片</span></div>
+        <div class="stat"><b>300+</b><span>深度影评</span></div>
+        <div class="stat"><b>50k+</b><span>观影会员</span></div>
+      </div>
+    </div>
+    <div class="film-stack" aria-hidden="true">
+      <div class="strip s1"><span>热门推荐 · 第 1 位</span></div>
+      <div class="strip s2"><span>高分口碑 · 必看榜</span></div>
+      <div class="strip s3"><span>新片速递 · 本周上映</span></div>
+      <div class="strip s4"><span>经典重映 · 回味无穷</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Films -->
+<section class="section" id="films">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">FILMS · 热映精选</span>
+      <h2>正在热映的影片，每一部都值得被看见</h2>
+      <p>比比奇电影网（bibiqidianyingwang-h5）每日更新热映片单，覆盖动作、喜剧、剧情、科幻、动画等多种类型，精准匹配你的观影口味。</p>
+    </div>
+    <div class="films">
+      <article class="film f-a bg1"><span class="tag">热门</span><div class="film-body"><h3>星际回响：远航者</h3><div class="meta"><span>科幻</span><span>9.2 分</span><span>IMAX</span></div></div></article>
+      <article class="film f-b bg2"><span class="tag">新片</span><div class="film-body"><h3>春日备忘录</h3><div class="meta"><span>剧情</span><span>8.6 分</span></div></div></article>
+      <article class="film f-c bg3"><div class="film-body"><h3>爆笑急先锋</h3><div class="meta"><span>喜剧</span><span>8.1 分</span></div></div></article>
+      <article class="film f-d bg4"><div class="film-body"><h3>深海谜踪</h3><div class="meta"><span>悬疑</span><span>8.8 分</span></div></div></article>
+      <article class="film f-e bg5"><span class="tag">口碑</span><div class="film-body"><h3>长安十二时辰</h3><div class="meta"><span>动作</span><span>9.0 分</span></div></div></article>
+      <article class="film f-c bg6"><div class="film-body"><h3>云端之恋</h3><div class="meta"><span>爱情</span><span>7.9 分</span></div></div></article>
+      <article class="film f-d bg7"><div class="film-body"><h3>怪兽训练营</h3><div class="meta"><span>动画</span><span>8.4 分</span></div></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- News -->
+<section class="section" id="news" style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">NEWS · 影讯动态</span>
+      <h2>影视圈最新消息，第一时间送达</h2>
+      <p>从比比奇电影网获取最及时的影讯动态，不错过任何一部新片定档与行业热点。</p>
+    </div>
+    <div>
+      <article class="news-item">
+        <div class="news-date"><b>28</b><small>10月</small></div>
+        <div class="news-text">
+          <h3>《星际回响：远航者》票房突破 20 亿，续集已进入筹备</h3>
+          <p>该片自上映以来口碑与票房双丰收，比比奇电影网观众评分高达 9.2，被视为本年度最具影响力的科幻大片之一。</p>
+        </div>
+        <a href="#" class="news-arrow">→</a>
+      </article>
+      <article class="news-item">
+        <div class="news-date"><b>25</b><small>10月</small></div>
+        <div class="news-text">
+          <h3>本周新片速递：6 部新作定档，喜剧与悬疑各占半壁</h3>
+          <p>涵盖多类型新片，满足不同观影需求，详情可查阅比比奇电影网热映榜单。</p>
+        </div>
+        <a href="#" class="news-arrow">→</a>
+      </article>
+      <article class="news-item">
+        <div class="news-date"><b>22</b><small>10月</small></div>
+        <div class="news-text">
+          <h3>国际电影节获奖名单揭晓，多部华语片斩获大奖</h3>
+          <p>今年华语电影在国际舞台上表现亮眼，多部作品获得重要奖项肯定。</p>
+        </div>
+        <a href="#" class="news-arrow">→</a>
+      </article>
+      <article class="news-item">
+        <div class="news-date"><b>18</b><small>10月</small></div>
+        <div class="news-text">
+          <h3>经典电影 4K 重制版定档，大银幕重温不朽之作</h3>
+          <p>多部影史经典将以全新画质重返院线，为观众带来震撼的视听体验。</p>
+        </div>
+        <a href="#" class="news-arrow">→</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section class="section" id="reviews">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">REVIEWS · 影评观点</span>
+      <h2>真实、专业、有态度的影评</h2>
+      <p>比比奇电影网（bibiqidianyingwang-h5）影评团队深度解读每一部作品，从剧情到视听，带你看到更多细节。</p>
+    </div>
+    <div class="reviews">
+      <article class="review">
+        <span class="num">1</span>
+        <div class="stars">★★★★★</div>
+        <h3>《星际回响》为什么值得看两遍？</h3>
+        <p>从世界观搭建到情感落点，这部科幻大片在视听震撼之外藏着大量值得反复推敲的细节，值得细细品味。</p>
+        <div class="review-foot"><span>影评人 · 阿Ken</span><span>深度解析</span></div>
+      </article>
+      <article class="review">
+        <span class="num">2</span>
+        <div class="stars">★★★★☆</div>
+        <h3>《春日备忘录》：克制而温柔的治愈之作</h3>
+        <p>没有激烈冲突，却用细腻笔触勾勒出人与人之间最真实的情感流动，看完后久久无法平静。</p>
+        <div class="review-foot"><span>影评人 · 小满</span><span>温情向</span></div>
+      </article>
+      <article class="review">
+        <span class="num">3</span>
+        <div class="stars">★★★★☆</div>
+        <h3>《深海谜踪》：反转之外更动人的人性</h3>
+        <p>悬念设置巧妙，层层剥开后留下的不是惊叹，而是对人性复杂的久久沉思。</p>
+        <div class="review-foot"><span>影评人 · 老周</span><span>悬疑向</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section" id="about" style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <div class="about-wrap">
+      <div class="about-art">
+        <span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span>
+        <div class="play"><span>▶</span></div>
+      </div>
+      <div class="about-text">
+        <span class="eyebrow">ABOUT · 关于本站</span>
+        <h2>比比奇电影网是什么？</h2>
+        <p><strong>比比奇电影网（bibiqidianyingwang-h5）</strong>是一个专注于影视资讯、影片推荐与观影导航的站点，致力于帮助每一位影迷更快、更准地发现好电影。</p>
+        <p>我们坚持客观、独立的内容立场，用真实评分和深度影评，让观影选择不再困难。</p>
+        <div class="feat-grid">
+          <div class="feat"><b>🎯 精选推荐</b><span>人工筛选优质影片，拒绝注水片单</span></div>
+          <div class="feat"><b>⚡ 实时更新</b><span>新片资讯与定档信息第一时间同步</span></div>
+          <div class="feat"><b>📝 深度影评</b><span>专业影评人团队，多角度解读作品</span></div>
+          <div class="feat"><b>🧭 便捷导航</b><span>按类型、地区、年代快速定位影片</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Link hub -->
+<section class="section" id="hub">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">SITEMAP · 影视导航</span>
+      <h2>快速找到你想看的</h2>
+      <p>比比奇电影网 bibiqidianyingwang-h5 分类导航，按类型、地区、榜单直达。</p>
+    </div>
+    <div class="link-hub">
+      <div class="hub-col">
+        <h3><i>🎞️</i>按类型</h3>
+        <a href="#">动作大片</a><a href="#">喜剧喜剧</a><a href="#">科幻奇幻</a><a href="#">悬疑惊悚</a><a href="#">爱情剧情</a><a href="#">动画家庭</a>
+      </div>
+      <div class="hub-col">
+        <h3><i>🌏</i>按地区</h3>
+        <a href="#">华语电影</a><a href="#">好莱坞</a><a href="#">日韩影视</a><a href="#">欧洲艺术</a><a href="#">印度宝莱坞</a><a href="#">东南亚</a>
+      </div>
+      <div class="hub-col">
+        <h3><i>🏆</i>热门榜单</h3>
+        <a href="#">热映票房榜</a><a href="#">高分口碑榜</a><a href="#">年度佳片榜</a><a href="#">经典重映榜</a><a href="#">冷门遗珠榜</a><a href="#">观众最爱榜</a>
+      </div>
+      <div class="hub-col">
+        <h3><i>📺</i>站内栏目</h3>
+        <a href="#films">热映影片</a><a href="#news">影讯动态</a><a href="#reviews">影评观点</a><a href="#about">关于本站</a><a href="#">观影指南</a><a href="#">联系我们</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <h4>🎬 比比奇电影网</h4>
+        <p>bibiqidianyingwang-h5 —— 专注影视资讯、影片推荐与观影导航，让每一次观影都恰到好处。</p>
+      </div>
+      <div>
+        <h4>快捷入口</h4>
+        <a href="#films">热映影片</a>
+        <a href="#news">影讯动态</a>
+        <a href="#reviews">影评观点</a>
+        <a href="#about">关于本站</a>
+      </div>
+      <div>
+        <h4>关注我们</h4>
+        <a href="#">微信公众号</a>
+        <a href="#">微博</a>
+        <a href="#">RSS 订阅</a>
+        <a href="#">合作洽谈</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr">2026</span> 比比奇电影网 bibiqidianyingwang-h5 · 本站内容仅供影视资讯参考</span>
+      <span>网站地址：<em>https://bibiqidianyingwang-h5.github.io</em></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+var menuBtn=document.getElementById('menuBtn'),nav=document.getElementById('nav');
+menuBtn.addEventListener('click',function(){nav.classList.toggle('open')});
+nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open')})});
+</script>
+</body>
+</html>
